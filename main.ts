@@ -114,7 +114,7 @@ input.onPinTouchEvent(TouchPin.P0, input.buttonEventDown(), function () {
     basic.pause(1000)
 })
 input.onPinTouchEvent(TouchPin.P2, input.buttonEventDown(), function () {
-    basic.showNumber(Feuchte)
+    basic.showNumber(pins.analogReadPin(Feuchte))
 })
 let Feuchte = 0
 let TempMax = 0
@@ -132,6 +132,6 @@ TempMax = 25
 basic.showIcon(IconNames.SmallHeart)
 basic.pause(1000)
 basic.forever(function () {
-    Feuchte = Math.round(Math.map(pins.analogReadPin(AnalogPin.P1), 0, 1023, 0, 100))
+    Feuchte = Math.round(Math.map(pins.analogReadPin(AnalogReadWritePin.P1), 0, 1023, 100, 0))
     basic.pause(100)
 })
